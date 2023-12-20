@@ -6,11 +6,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 
 
-
-
-
-Route::prefix('api/v1')->group(function () {
-    Route::post('/register', 'AuthController@register'); // Registration doesn't require authentication
+Route::prefix('v1')->group(function () {
+    Route::post('/register', [AuthController::class,'register']); // Registration doesn't require authentication
 
     Route::middleware('auth:sanctum')->group(function () {
         // Route::post('/logout', 'AuthController@logout');
